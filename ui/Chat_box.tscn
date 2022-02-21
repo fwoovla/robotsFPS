@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://media/fonts/conthrax-sb.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://media/fonts/base_font_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/Chat_box.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_color = Color( 0.862745, 0.819608, 0.176471, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+outline_color = Color( 0.862745, 0.819608, 0.176471, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Chat_box" type="Control"]
+anchor_left = 0.321289
+anchor_top = 0.0416667
+anchor_right = 0.650391
+anchor_bottom = 0.896667
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chat_list" type="ItemList" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.941
+margin_top = -194.438
+margin_right = 154.059
+margin_bottom = 107.562
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Send_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.5
+margin_top = -45.0
+margin_right = 63.5
+custom_fonts/font = SubResource( 2 )
+text = "SEND"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_to_send" type="LineEdit" parent="Send_button"]
+anchor_left = 0.00314376
+anchor_top = -0.0061956
+anchor_right = 0.00314376
+anchor_bottom = -0.0061956
+margin_left = -90.3993
+margin_top = -79.5805
+margin_right = 218.601
+margin_bottom = -27.5805
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_right = 48.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 2 )
+text = "Chat"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Send_button" to="." method="_on_Send_button_pressed"]

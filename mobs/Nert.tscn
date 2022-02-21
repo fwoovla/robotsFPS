@@ -1,0 +1,269 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://media/textures/PNG (Transparent)/flare_01.png" type="Texture" id=1]
+[ext_resource path="res://media/textures/PNG (Transparent)/smoke_04.png" type="Texture" id=2]
+[ext_resource path="res://media/sounds/explosion09.wav" type="AudioStream" id=3]
+[ext_resource path="res://media/sounds/Cloud Click.wav" type="AudioStream" id=4]
+[ext_resource path="res://mobs/Nert.gd" type="Script" id=5]
+[ext_resource path="res://media/textures/mixedsets/metal/mtl01_c2.png" type="Texture" id=6]
+[ext_resource path="res://media/sounds/SFX/Beep/11.wav" type="AudioStream" id=7]
+
+[sub_resource type="SphereShape" id=1]
+radius = 7.57184
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 3.0, 0.0, 3.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 3.0, 0.0, 3.0 ]
+}
+
+[sub_resource type="Curve" id=6]
+min_value = -1.0
+_data = [ Vector2( 0, 0.059091 ), 0.0, 1.63226, 0, 0, Vector2( 0.966942, 0.0772728 ), -1.32, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.0363636 ), 0.0, 3.80769, 0, 0, Vector2( 0.570248, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0545454 ), -2.31579, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3( 0, 2, 0 )
+scale_curve = SubResource( 9 )
+hue_variation = -0.17
+hue_variation_curve = SubResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=12]
+material = SubResource( 11 )
+size = Vector2( 0.3, 0.3 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0409091 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+direction = Vector3( 0, 1, 0 )
+spread = 104.14
+gravity = Vector3( 0, -1, 0 )
+initial_velocity = 10.0
+scale = 7.0
+scale_curve = SubResource( 14 )
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=17]
+material = SubResource( 16 )
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 0.327887, 0.285078, 0.317199 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0.607843, 0.494118, 0.631373, 1 )
+albedo_texture = ExtResource( 6 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=20]
+material = SubResource( 19 )
+size = Vector3( 0.3, 0.3, 0.3 )
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_color = Color( 1, 0.843137, 0, 1 )
+
+[sub_resource type="CubeMesh" id=22]
+material = SubResource( 21 )
+size = Vector3( 0.05, 0.05, 0.05 )
+
+[sub_resource type="SphereShape" id=23]
+radius = 0.474163
+
+[node name="Nert" type="KinematicBody" groups=[
+"Enemy",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.196235, 0 )
+script = ExtResource( 5 )
+
+[node name="Turret" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232636, 0.171177, -0.0226201 )
+
+[node name="Area" type="Area" parent="."]
+monitorable = false
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sightline" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0875367, -0.307319 )
+enabled = true
+cast_to = Vector3( 0, 0, -25 )
+collide_with_areas = true
+
+[node name="network_timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="scan_timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.05
+autostart = true
+
+[node name="next_action" type="Timer" parent="."]
+autostart = true
+
+[node name="light2" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.114895, 0.103206, 0.0316236 )
+visible = false
+mesh = SubResource( 2 )
+material = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="light2"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="light2"]
+transform = Transform( 0.960585, 0.277985, 0, -0.277985, 0.960585, 0, 0, 0, 1, 0.0615215, 0.0139349, 0 )
+light_color = Color( 0.356863, 0.921569, 0.0666667, 1 )
+light_energy = 2.39803
+omni_range = 0.137537
+
+[node name="light1" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117765, 0.105055, 0.028825 )
+visible = false
+mesh = SubResource( 2 )
+material = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="light1"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 5 )
+
+[node name="OmniLight" type="OmniLight" parent="light1"]
+transform = Transform( 0.960585, 0.277985, 0, -0.277985, 0.960585, 0, 0, 0, 1, -0.0768741, 0.0139349, 0 )
+light_color = Color( 0.356863, 0.921569, 0.0666667, 1 )
+light_energy = 3.0
+omni_range = 0.163143
+
+[node name="Explosion" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27784, 0 )
+
+[node name="Particles" type="Particles" parent="Explosion"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024318, -1.24535, 0 )
+emitting = false
+amount = 20
+lifetime = 0.62
+visibility_aabb = AABB( -4, -4.03857, -4, 8, 8, 8 )
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="Particles2" type="Particles" parent="Explosion"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0158784, -1.24502, -0.0971439 )
+emitting = false
+amount = 20
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.88
+process_material = SubResource( 15 )
+draw_pass_1 = SubResource( 17 )
+
+[node name="Hit_sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = 25.0
+unit_size = 9.6
+
+[node name="Explode_sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+unit_db = 30.0
+
+[node name="target_sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 7 )
+unit_db = 8.272
+pitch_scale = 3.42
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129814, 0 )
+shape = SubResource( 18 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 20 )
+material/0 = null
+
+[node name="eye" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0740099, 0.105572, -0.136574 )
+mesh = SubResource( 22 )
+material/0 = null
+
+[node name="eye2" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0673983, 0.105572, -0.136574 )
+mesh = SubResource( 22 )
+material/0 = null
+
+[node name="attack_area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="attack_area"]
+shape = SubResource( 23 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
+[connection signal="timeout" from="network_timer" to="." method="_on_network_timer_timeout"]
+[connection signal="timeout" from="scan_timer" to="." method="_on_scan_timer_timeout"]
+[connection signal="timeout" from="next_action" to="." method="_on_next_action_timeout"]
+[connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
