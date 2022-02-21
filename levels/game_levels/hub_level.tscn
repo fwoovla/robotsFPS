@@ -1,0 +1,1318 @@
+[gd_scene load_steps=89 format=2]
+
+[ext_resource path="res://levels/Spawn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/walls/hub.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/game_levels/hub_level.gd" type="Script" id=3]
+[ext_resource path="res://levels/walls/Scene_room.tscn" type="PackedScene" id=4]
+[ext_resource path="res://media/textures/wall_tex_3.png" type="Texture" id=5]
+[ext_resource path="res://levels/scenery/ship_1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/walls/sideroom1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/walls/sideroom2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://media/textures/mixedsets/metal/mtl_trim01_c.png" type="Texture" id=9]
+[ext_resource path="res://media/textures/256x256/Wood/Wood 14 - 256x256.png" type="Texture" id=10]
+[ext_resource path="res://levels/game_levels/Boss_Door.gd" type="Script" id=11]
+[ext_resource path="res://levels/game_levels/card_2_Door.gd" type="Script" id=12]
+[ext_resource path="res://levels/scenery/Key_2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://levels/scenery/rover.tscn" type="PackedScene" id=14]
+[ext_resource path="res://levels/scenery/crate.tscn" type="PackedScene" id=15]
+[ext_resource path="res://levels/kenney_walls/desk_computerCorner.tscn" type="PackedScene" id=16]
+[ext_resource path="res://levels/kenney_walls/desk_chair.tscn" type="PackedScene" id=17]
+[ext_resource path="res://icon.png" type="Texture" id=18]
+[ext_resource path="res://media/sprites/loading_sign_1.png" type="Texture" id=19]
+[ext_resource path="res://media/sprites/exit_sign.png" type="Texture" id=20]
+[ext_resource path="res://media/sprites/storage_sign_1.png" type="Texture" id=21]
+[ext_resource path="res://media/textures/256x256/Wood/Wood 1 - 256x256.png" type="Texture" id=22]
+[ext_resource path="res://levels/scenery/pipe.tscn" type="PackedScene" id=23]
+[ext_resource path="res://levels/kenney_walls/supports_high.tscn" type="PackedScene" id=24]
+[ext_resource path="res://mobs/Bad_bob.tscn" type="PackedScene" id=25]
+[ext_resource path="res://mobs/Mad_martha.tscn" type="PackedScene" id=26]
+[ext_resource path="res://items/Enemy_spawner.tscn" type="PackedScene" id=27]
+[ext_resource path="res://mobs/Little_elvis.tscn" type="PackedScene" id=28]
+[ext_resource path="res://items/Pea_shooter_item.tscn" type="PackedScene" id=29]
+[ext_resource path="res://items/health_spawner.tscn" type="PackedScene" id=30]
+[ext_resource path="res://items/Item_spawner.tscn" type="PackedScene" id=31]
+[ext_resource path="res://items/Buzzsaw_item.tscn" type="PackedScene" id=32]
+[ext_resource path="res://items/Blooper_item.tscn" type="PackedScene" id=33]
+[ext_resource path="res://items/sparkle_gun_item.tscn" type="PackedScene" id=34]
+[ext_resource path="res://levels/game_levels/hub_level.lmbake" type="BakedLightmapData" id=35]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_blend_mode = 1
+albedo_color = Color( 0.647059, 0.807843, 0.8, 1 )
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 2, 2, 2 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 0.01, 2, 15 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -0.005, 1, 7.5, 0.005, 1, -7.5, 0.005, 1, 7.5, -0.005, 1, -7.5, -0.005, -1, 7.5, 0.005, -1, -7.5, 0.005, -1, 7.5, -0.005, -1, -7.5, 0.005, 1, 7.5, -0.005, 1, -7.5, 0.005, 1, -7.5, -0.005, 1, 7.5, 0.005, -1, 7.5, -0.005, -1, -7.5, 0.005, -1, -7.5, -0.005, -1, 7.5, 0.005, 1, 7.5, -0.005, -1, 7.5, -0.005, 1, 7.5, 0.005, -1, 7.5, 0.005, 1, -7.5, -0.005, -1, -7.5, -0.005, 1, -7.5, 0.005, -1, -7.5 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 1 )
+size = Vector3( 0.01, 2, 7.5 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.941176, 0.960784, 0.305882, 1 )
+emission_enabled = true
+emission = Color( 1, 0.984314, 0.733333, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 0.3, 0.3, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.556863, 0.556863, 0.556863, 1 )
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="CubeMesh" id=8]
+material = SubResource( 7 )
+size = Vector3( 3, 7, 0.01 )
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( -1.5, 2.5, 0.15, 1.5, 2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, -1.5, -2.5, 0.15, 1.5, -2.5, -0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, 1.5, 2.5, -0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, -2.5, -0.15, -1.5, -2.5, 0.15, 1.5, 2.5, 0.15, -1.5, -2.5, 0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, 1.5, 2.5, -0.15, -1.5, -2.5, -0.15, -1.5, 2.5, -0.15, 1.5, -2.5, -0.15 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( -1.5, 2.5, 0.15, 1.5, 2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, -1.5, -2.5, 0.15, 1.5, -2.5, -0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, 1.5, 2.5, -0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, -2.5, -0.15, -1.5, -2.5, 0.15, 1.5, 2.5, 0.15, -1.5, -2.5, 0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, 1.5, 2.5, -0.15, -1.5, -2.5, -0.15, -1.5, 2.5, -0.15, 1.5, -2.5, -0.15 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 11 )
+size = Vector3( 6, 0.5, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="CubeMesh" id=14]
+material = SubResource( 13 )
+size = Vector3( 6.1, 0.5, 1 )
+
+[sub_resource type="CubeMesh" id=15]
+size = Vector3( 0.8, 1, 0.1 )
+
+[sub_resource type="ConvexPolygonShape" id=16]
+points = PoolVector3Array( -0.4, 0.5, 0.05, 0.4, 0.5, -0.05, 0.4, 0.5, 0.05, -0.4, 0.5, -0.05, -0.4, -0.5, 0.05, 0.4, -0.5, -0.05, 0.4, -0.5, 0.05, -0.4, -0.5, -0.05, 0.4, 0.5, 0.05, -0.4, 0.5, -0.05, 0.4, 0.5, -0.05, -0.4, 0.5, 0.05, 0.4, -0.5, 0.05, -0.4, -0.5, -0.05, 0.4, -0.5, -0.05, -0.4, -0.5, 0.05, 0.4, 0.5, 0.05, -0.4, -0.5, 0.05, -0.4, 0.5, 0.05, 0.4, -0.5, 0.05, 0.4, 0.5, -0.05, -0.4, -0.5, -0.05, -0.4, 0.5, -0.05, 0.4, -0.5, -0.05 )
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 0.423409, 0.509615, 0.539523 )
+
+[sub_resource type="CubeMesh" id=18]
+size = Vector3( 0.5, 5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0.588235, 0.364706, 0.647059, 1 )
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_color = Color( 0.0823529, 0.156863, 0.933333, 1 )
+emission_enabled = true
+emission = Color( 0.207843, 0.403922, 1, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=21]
+material = SubResource( 20 )
+size = Vector3( 0.2, 0.2, 1 )
+
+[sub_resource type="CubeMesh" id=22]
+size = Vector3( 0.5, 6, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_color = Color( 0.258824, 0.721569, 0.145098, 1 )
+
+[sub_resource type="SpatialMaterial" id=24]
+albedo_color = Color( 0.258824, 0.721569, 0.145098, 1 )
+
+[sub_resource type="CubeMesh" id=25]
+size = Vector3( 0.5, 5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=26]
+albedo_color = Color( 0.258824, 0.721569, 0.145098, 1 )
+
+[sub_resource type="SpatialMaterial" id=27]
+albedo_color = Color( 0.259264, 0.722656, 0.14679, 1 )
+
+[sub_resource type="CubeMesh" id=28]
+size = Vector3( 0.3, 0.2, 8 )
+
+[sub_resource type="SpatialMaterial" id=29]
+albedo_color = Color( 0.258824, 0.721569, 0.145098, 1 )
+
+[sub_resource type="CubeMesh" id=30]
+size = Vector3( 0.3, 0.2, 2 )
+
+[sub_resource type="SpatialMaterial" id=31]
+albedo_color = Color( 0.556863, 0.556863, 0.556863, 1 )
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="CubeMesh" id=32]
+material = SubResource( 31 )
+size = Vector3( 3, 7, 0.01 )
+
+[sub_resource type="ConvexPolygonShape" id=33]
+points = PoolVector3Array( -1.5, 2.5, 0.15, 1.5, 2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, -1.5, -2.5, 0.15, 1.5, -2.5, -0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, 1.5, 2.5, -0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, -2.5, -0.15, -1.5, -2.5, 0.15, 1.5, 2.5, 0.15, -1.5, -2.5, 0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, 1.5, 2.5, -0.15, -1.5, -2.5, -0.15, -1.5, 2.5, -0.15, 1.5, -2.5, -0.15 )
+
+[sub_resource type="ConvexPolygonShape" id=34]
+points = PoolVector3Array( -1.5, 2.5, 0.15, 1.5, 2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, -1.5, -2.5, 0.15, 1.5, -2.5, -0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, 2.5, 0.15, -1.5, 2.5, -0.15, 1.5, 2.5, -0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, -1.5, -2.5, -0.15, 1.5, -2.5, -0.15, -1.5, -2.5, 0.15, 1.5, 2.5, 0.15, -1.5, -2.5, 0.15, -1.5, 2.5, 0.15, 1.5, -2.5, 0.15, 1.5, 2.5, -0.15, -1.5, -2.5, -0.15, -1.5, 2.5, -0.15, 1.5, -2.5, -0.15 )
+
+[sub_resource type="SpatialMaterial" id=35]
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="CubeMesh" id=36]
+material = SubResource( 35 )
+size = Vector3( 6, 0.5, 1 )
+
+[sub_resource type="SpatialMaterial" id=37]
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="CubeMesh" id=38]
+material = SubResource( 37 )
+size = Vector3( 6.1, 0.5, 1 )
+
+[sub_resource type="SpatialMaterial" id=39]
+emission_enabled = true
+emission = Color( 0, 0.392157, 0.0588235, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=40]
+material = SubResource( 39 )
+size = Vector3( 0.8, 1, 0.1 )
+
+[sub_resource type="ConvexPolygonShape" id=41]
+points = PoolVector3Array( -0.4, 0.5, 0.05, 0.4, 0.5, -0.05, 0.4, 0.5, 0.05, -0.4, 0.5, -0.05, -0.4, -0.5, 0.05, 0.4, -0.5, -0.05, 0.4, -0.5, 0.05, -0.4, -0.5, -0.05, 0.4, 0.5, 0.05, -0.4, 0.5, -0.05, 0.4, 0.5, -0.05, -0.4, 0.5, 0.05, 0.4, -0.5, 0.05, -0.4, -0.5, -0.05, 0.4, -0.5, -0.05, -0.4, -0.5, 0.05, 0.4, 0.5, 0.05, -0.4, -0.5, 0.05, -0.4, 0.5, 0.05, 0.4, -0.5, 0.05, 0.4, 0.5, -0.05, -0.4, -0.5, -0.05, -0.4, 0.5, -0.05, 0.4, -0.5, -0.05 )
+
+[sub_resource type="BoxShape" id=42]
+extents = Vector3( 0.423409, 0.509615, 0.539523 )
+
+[sub_resource type="SpatialMaterial" id=43]
+albedo_texture = ExtResource( 22 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=44]
+material = SubResource( 43 )
+size = Vector3( 3, 0.05, 0.85 )
+
+[sub_resource type="ConvexPolygonShape" id=45]
+points = PoolVector3Array( -1.5, 0.025, 0.425, 1.5, 0.025, -0.425, 1.5, 0.025, 0.425, -1.5, 0.025, -0.425, -1.5, -0.025, 0.425, 1.5, -0.025, -0.425, 1.5, -0.025, 0.425, -1.5, -0.025, -0.425, 1.5, 0.025, 0.425, -1.5, 0.025, -0.425, 1.5, 0.025, -0.425, -1.5, 0.025, 0.425, 1.5, -0.025, 0.425, -1.5, -0.025, -0.425, 1.5, -0.025, -0.425, -1.5, -0.025, 0.425, 1.5, 0.025, 0.425, -1.5, -0.025, 0.425, -1.5, 0.025, 0.425, 1.5, -0.025, 0.425, 1.5, 0.025, -0.425, -1.5, -0.025, -0.425, -1.5, 0.025, -0.425, 1.5, -0.025, -0.425 )
+
+[sub_resource type="Environment" id=46]
+background_energy = 0.0
+ambient_light_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+ambient_light_energy = 0.17
+
+[sub_resource type="SpatialMaterial" id=47]
+albedo_color = Color( 0.984314, 0.964706, 0.458824, 1 )
+emission_enabled = true
+emission = Color( 0.878431, 0.866667, 0.576471, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=48]
+material = SubResource( 47 )
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=49]
+albedo_color = Color( 0.898039, 0.168627, 0.168627, 1 )
+emission_enabled = true
+emission = Color( 0.466667, 0.196078, 0.196078, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=50]
+material = SubResource( 49 )
+size = Vector3( 0.4, 0.7, 0.4 )
+
+[sub_resource type="Animation" id=51]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:light_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.447059, 0.117647, 0.117647, 1 ), Color( 0.854902, 0.196078, 0.196078, 1 ), Color( 0.811971, 0.187823, 0.187823, 1 ), Color( 0.447059, 0.117647, 0.117647, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 360, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=52]
+emission_enabled = true
+emission = Color( 0.694118, 0.721569, 0.203922, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=53]
+material = SubResource( 52 )
+size = Vector3( 0.3, 0.3, 0.3 )
+
+[node name="hub_level" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.57806, 0 )
+script = ExtResource( 3 )
+
+[node name="Spawns" type="Spatial" parent="."]
+transform = Transform( 0.238652, 0, 0.971105, 0, 1, 0, -0.971105, 0, 0.238652, 10.492, -4.81801, 54.9132 )
+
+[node name="0" parent="Spawns" instance=ExtResource( 1 )]
+transform = Transform( 0.799601, 0, -0.600532, 0, 1, 0, 0.600532, 0, 0.799601, 0, 0, 0 )
+visible = false
+
+[node name="2" parent="Spawns" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0086, 0, -41.9188 )
+visible = false
+
+[node name="hub" parent="." instance=ExtResource( 2 )]
+
+[node name="window" type="StaticBody" parent="hub"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6582, -2.8477, -8.09241 )
+
+[node name="MeshInstance" type="MeshInstance" parent="hub/window"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355061, 0.074981, 0.586997 )
+use_in_baked_light = true
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="hub/window"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355061, 0.074981, 0.586997 )
+shape = SubResource( 3 )
+
+[node name="window2" type="StaticBody" parent="hub"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.051, -2.8477, 10.3383 )
+
+[node name="MeshInstance" type="MeshInstance" parent="hub/window2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00445175, 0.575701, 0.899234 )
+use_in_baked_light = true
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="hub/window2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355061, 0.074981, 0.586997 )
+shape = SubResource( 3 )
+
+[node name="lamp" type="MeshInstance" parent="hub"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05748, 20.5247, 20.1303 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="hub/lamp"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+spot_range = 59.1771
+spot_angle = 52.5411
+
+[node name="lamp3" type="MeshInstance" parent="hub"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.76375, 8.86308, -37.6818 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="hub/lamp3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.300743, -9.53674e-07, -1.90735e-06 )
+spot_range = 45.0
+spot_angle = 70.732
+
+[node name="lamp4" type="MeshInstance" parent="hub"]
+transform = Transform( -1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 28.3577, 8.86308, -20.6818 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="hub/lamp4"]
+transform = Transform( 0.862743, 9.83061e-09, -0.505642, 0.505642, 7.49624e-09, 0.862743, 1.22717e-08, -1, 1.49656e-09, -0.957977, -1.90735e-06, -1.90735e-06 )
+spot_range = 45.0
+spot_angle = 44.3871
+
+[node name="lamp5" type="MeshInstance" parent="hub"]
+transform = Transform( -1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 28.3577, 8.86308, 22.3182 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="hub/lamp5"]
+transform = Transform( 0.931622, 9.77251e-09, -0.36343, 0.36343, -8.22928e-09, 0.931622, 6.11352e-09, -1, -1.12182e-08, -0.299931, 0, -1.90735e-06 )
+spot_range = 29.3387
+spot_angle = 34.8637
+
+[node name="lamp6" type="MeshInstance" parent="hub"]
+transform = Transform( 1.33118e-07, 0, 1, 0, 1, 0, -1, 0, 1.33118e-07, 5.18114, 8.86308, 37.8809 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="hub/lamp6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.300743, -9.53674e-07, -1.90735e-06 )
+spot_range = 45.0
+spot_angle = 70.732
+
+[node name="Boss_Door" type="Spatial" parent="hub"]
+transform = Transform( 1.7, 0, 0, 0, 1, 0, 0, 0, 1, -9.30316, -4.92597, -39.6885 )
+script = ExtResource( 11 )
+
+[node name="Door" type="StaticBody" parent="hub/Boss_Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="hub/Boss_Door/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -0.318146 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="hub/Boss_Door/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+shape = SubResource( 9 )
+
+[node name="Door2" type="StaticBody" parent="hub/Boss_Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="hub/Boss_Door/Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -0.318146 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="hub/Boss_Door/Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+shape = SubResource( 10 )
+
+[node name="frame" type="MeshInstance" parent="hub/Boss_Door"]
+
+[node name="MeshInstance" type="MeshInstance" parent="hub/Boss_Door/frame"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.50928, 0 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="hub/Boss_Door/frame"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.22647, 2.70942, 0 )
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="hub/Boss_Door/frame"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3.191, 2.72718, 0 )
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="Button" type="StaticBody" parent="hub/Boss_Door" groups=[
+"Keypad",
+]]
+transform = Transform( -0.5, 0, -5.14252e-08, 0, 0.999999, 0, 7.43093e-08, 0, -0.999999, -4.7839, 1.60682, -0.260197 )
+
+[node name="MeshInstance" type="MeshInstance" parent="hub/Boss_Door/Button"]
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="hub/Boss_Door/Button"]
+shape = SubResource( 16 )
+
+[node name="Area" type="Area" parent="hub/Boss_Door/Button"]
+
+[node name="CollisionShape" type="CollisionShape" parent="hub/Boss_Door/Button/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.529253 )
+shape = SubResource( 17 )
+
+[node name="Tween" type="Tween" parent="hub/Boss_Door"]
+
+[node name="Timer" type="Timer" parent="hub/Boss_Door"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Scene_room_to_intro" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.31134e-07, 0, 2, 0, 2, 0, -3, 0, -8.74228e-08, 32.9587, -4.53806, 56.9635 )
+
+[node name="MeshInstance" parent="Scene_room_to_intro" index="0"]
+use_in_baked_light = true
+
+[node name="CollisionShape" parent="Scene_room_to_intro" index="1"]
+transform = Transform( -4.37114e-08, 0, -0.666667, 0, 1, 0, 1.5, 0, -4.37114e-08, 0.902466, -0.546299, -7.15143 )
+
+[node name="CollisionShape2" parent="Scene_room_to_intro" index="2"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.05879e-21, 0, 1, 1.72461, 1.4537, -7.15143 )
+
+[node name="CollisionShape3" parent="Scene_room_to_intro" index="3"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -2.11758e-21, 0, 1, -0.587145, 1.4537, -8.15142 )
+
+[node name="CollisionShape4" parent="Scene_room_to_intro" index="4"]
+transform = Transform( 1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.746193, 1.4537, -6.15143 )
+
+[node name="Scene_trigger" parent="Scene_room_to_intro" index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.186867, 2.71008, -5.08049 )
+
+[node name="Scenery" type="Spatial" parent="."]
+
+[node name="ship_1" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( 7.07248, 0, 3.739, 0, 8, 0, -3.739, 0, 7.07248, -3.84617, -4.88251, -4.0219 )
+
+[node name="ship_2" parent="Scenery" instance=ExtResource( 6 )]
+transform = Transform( -0.780801, 0, -7.96181, 0, 8, 0, 7.96181, 0, -0.780801, -48.6927, -5.0311, -7.78839 )
+
+[node name="Key_2" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.554, -10.7502, 18.4238 )
+
+[node name="crate" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.958948, 0, 0.28358, 0, 1, 0, -0.28358, 0, 0.958948, 28.2647, -3.77892, -8.09687 )
+
+[node name="crate2" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.996689, 0, -0.0813123, 0, 1, 0, 0.0813123, 0, 0.996689, 28.2647, -3.77892, -11.2227 )
+
+[node name="crate3" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.988353, 0, 0.152175, 0, 1, 0, -0.152175, 0, 0.988353, 28.2647, -3.77892, -13.8314 )
+
+[node name="crate4" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.988353, 0, 0.152175, 0, 1, 0, -0.152175, 0, 0.988353, 28.2647, -1.57505, -10.0397 )
+
+[node name="crate5" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.506696, 0, -0.862125, 0, 1, 0, 0.862125, 0, -0.506696, 24.2612, -3.77892, -37.9045 )
+
+[node name="crate6" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.783498, 0, -0.621394, 0, 1, 0, 0.621394, 0, -0.783498, 26.3963, -3.77892, -35.6214 )
+
+[node name="crate7" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.617928, 0, -0.786234, 0, 1, 0, 0.786234, 0, -0.617928, 28.1781, -3.77892, -33.7161 )
+
+[node name="crate8" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.617928, 0, -0.786234, 0, 1, 0, 0.786234, 0, -0.617928, 25.5882, -1.57505, -36.4854 )
+
+[node name="crate9" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.273103, 0, 0.961985, 0, 1, 0, -0.961985, 0, -0.273103, 23.1553, -3.77892, 37.9579 )
+
+[node name="crate10" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0921794, 0, 0.995742, 0, 1, 0, -0.995742, 0, 0.0921794, 20.4156, -3.77892, 38.3941 )
+
+[node name="crate11" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0298059, 0, 0.999556, 0, 1, 0, -0.999556, 0, 0.0298059, 28.5398, -3.77892, 38.2401 )
+
+[node name="crate14" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.12355, 0, 0.992338, 0, 1, 0, -0.992338, 0, 0.12355, 27.6431, -1.55899, 38.2401 )
+
+[node name="crate13" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.00286242, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00286242, 26.2106, -3.77892, 38.3373 )
+
+[node name="crate12" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.141385, 0, 0.989955, 0, 1, 0, -0.989955, 0, -0.141385, 21.5986, -1.57505, 38.407 )
+
+[node name="crate27" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.921308, 0, -0.388835, 0, 1, 0, 0.388835, 0, -0.921308, 57.4881, -3.77892, -16.6016 )
+
+[node name="crate30" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.474088, 0, -0.880477, 0, 1, 0, 0.880477, 0, -0.474088, 55.7459, -3.77892, -18.8648 )
+
+[node name="crate28" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.862743, 0, -0.505642, 0, 1, 0, 0.505642, 0, -0.862743, 59.2002, -3.77892, -14.4482 )
+
+[node name="crate29" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.721869, 0, -0.69203, 0, 1, 0, 0.69203, 0, -0.721869, 58.521, -1.57505, -15.4168 )
+
+[node name="crate36" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.0292822, 0, -0.999572, 0, 1, 0, 0.999572, 0, -0.0292822, 52.7015, -9.66671, 29.8274 )
+
+[node name="crate37" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 50.298, -9.66671, 30.3822 )
+
+[node name="crate38" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0271712, 0, -0.99963, 0, 1, 0, 0.99963, 0, 0.0271712, 67.9423, -9.66671, 24.3048 )
+
+[node name="crate40" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0271712, 0, -0.99963, 0, 1, 0, 0.99963, 0, 0.0271712, 67.9423, -9.66671, 21.9508 )
+
+[node name="crate41" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0271712, 0, -0.99963, 0, 1, 0, 0.99963, 0, 0.0271712, 67.9423, -9.66671, 19.5772 )
+
+[node name="crate42" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0271712, 0, -0.99963, 0, 1, 0, 0.99963, 0, 0.0271712, 67.9423, -9.66671, 17.1325 )
+
+[node name="crate43" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0271712, 0, -0.99963, 0, 1, 0, 0.99963, 0, 0.0271712, 67.9423, -9.66671, 14.6697 )
+
+[node name="crate44" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.112527, 0, -0.993648, 0, 1, 0, 0.993648, 0, 0.112527, 67.9481, -7.4482, 24.2735 )
+
+[node name="crate45" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0271712, 0, -0.99963, 0, 1, 0, 0.99963, 0, 0.0271712, 67.9423, -7.46321, 21.9508 )
+
+[node name="crate46" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.185735, 0, -0.982599, 0, 1, 0, 0.982599, 0, -0.185735, 67.9423, -7.46321, 19.5772 )
+
+[node name="crate47" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.00945979, 0, -0.999955, 0, 1, 0, 0.999955, 0, -0.00945979, 67.9423, -7.46321, 17.1325 )
+
+[node name="crate48" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0631735, 0, -0.998002, 0, 1, 0, 0.998002, 0, 0.0631735, 67.9423, -7.46321, 14.6697 )
+
+[node name="crate49" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.112527, 0, -0.993648, 0, 1, 0, 0.993648, 0, 0.112527, 67.9481, -5.24741, 24.2906 )
+
+[node name="crate50" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.0235077, 0, -0.999723, 0, 1, 0, 0.999723, 0, -0.0235077, 67.9423, -5.26242, 21.9679 )
+
+[node name="crate51" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.040271, 0, -0.999188, 0, 1, 0, 0.999188, 0, 0.040271, 67.9423, -5.26242, 19.5943 )
+
+[node name="crate52" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0285145, 0, -0.999593, 0, 1, 0, 0.999593, 0, 0.0285145, 67.9423, -5.26242, 17.1496 )
+
+[node name="crate53" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.0172258, 0, -0.999851, 0, 1, 0, 0.999851, 0, -0.0172258, 67.9423, -5.26242, 14.6868 )
+
+[node name="crate39" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.131582, 0, -0.991305, 0, 1, 0, 0.991305, 0, 0.131582, 51.7022, -7.46284, 30.2067 )
+
+[node name="crate31" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.414518, 0, -0.910041, 0, 1, 0, 0.910041, 0, -0.414518, 38.6567, -3.77892, 1.72835 )
+
+[node name="crate32" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.24749, 0, -0.96889, 0, 1, 0, 0.96889, 0, 0.24749, 41.3467, -3.77892, 4.8112 )
+
+[node name="crate35" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.0475598, 0, -0.998868, 0, 1, 0, 0.998868, 0, 0.0475598, 41.3467, -3.77892, 14.635 )
+
+[node name="crate33" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.292322, 0, -0.95632, 0, 1, 0, 0.95632, 0, -0.292322, 41.3748, -3.77892, 2.15326 )
+
+[node name="crate34" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( -0.0624422, 0, -0.998049, 0, 1, 0, 0.998049, 0, -0.0624422, 40.2191, -1.57505, 1.90057 )
+
+[node name="crate15" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.930136, 0, 0.367216, 0, 1, 0, -0.367216, 0, 0.930136, -27.8192, -3.77892, 31.782 )
+
+[node name="crate16" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.999975, 0, 0.00708598, 0, 1, 0, -0.00708598, 0, 0.999975, -28.5251, -3.77892, 29.0991 )
+
+[node name="crate17" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.389204, 0, 0.921151, 0, 1, 0, -0.921151, 0, 0.389204, -25.1603, -3.77892, 37.4894 )
+
+[node name="crate18" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.473996, 0, 0.880527, 0, 1, 0, -0.880527, 0, 0.473996, -25.9963, -1.55899, 37.1652 )
+
+[node name="crate19" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.364243, 0, 0.931304, 0, 1, 0, -0.931304, 0, 0.364243, -27.3914, -3.77892, 36.733 )
+
+[node name="crate20" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.971038, 0, 0.238923, 0, 1, 0, -0.238923, 0, 0.971038, -28.4206, -1.57505, 30.2775 )
+
+[node name="crate21" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.66635, 0, -0.745639, 0, 1, 0, 0.745639, 0, 0.66635, -46.6177, -3.77892, -28.9807 )
+
+[node name="crate22" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.352626, 0, -0.935764, 0, 1, 0, 0.935764, 0, 0.352626, -44.3447, -3.77892, -30.5713 )
+
+[node name="crate23" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.560133, 0, -0.828403, 0, 1, 0, 0.828403, 0, 0.560133, -45.4142, -1.57505, -30.0655 )
+
+[node name="crate24" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.972808, 0, 0.231612, 0, 1, 0, -0.231612, 0, 0.972808, -56.782, -3.77892, 5.89537 )
+
+[node name="crate25" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.990875, 0, -0.134782, 0, 1, 0, 0.134782, 0, 0.990875, -57.1004, -3.77892, 3.13946 )
+
+[node name="crate26" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 0.995106, 0, 0.098816, 0, 1, 0, -0.098816, 0, 0.995106, -57.1639, -1.57505, 4.32077 )
+
+[node name="rover" parent="Scenery" instance=ExtResource( 14 )]
+transform = Transform( -6.7998, 0, -4.21458, 0, 8, 0, 4.21458, 0, -6.7998, 15.787, -5.0605, -35.482 )
+
+[node name="rover3" parent="Scenery" instance=ExtResource( 14 )]
+transform = Transform( -1.51523, 0, -7.85519, 0, 8, 0, 7.85519, 0, -1.51523, 59.5461, -10.8423, 18.8188 )
+
+[node name="rover4" parent="Scenery" instance=ExtResource( 14 )]
+transform = Transform( -7.99649, 0, 0.236911, 0, 8, 0, -0.236911, 0, -7.99649, 64.122, -10.8423, 15.7441 )
+
+[node name="rover5" parent="Scenery" instance=ExtResource( 14 )]
+transform = Transform( -7.825, 0, -1.66411, 0, 8, 0, 1.66411, 0, -7.825, 60.8053, -10.8423, 28.8781 )
+
+[node name="rover2" parent="Scenery" instance=ExtResource( 14 )]
+transform = Transform( -2.22455, 0, -7.68449, 0, 8, 0, 7.68449, 0, -2.22455, -25.3185, -5.05919, 33.9334 )
+
+[node name="desk_computerCorner" parent="Scenery" instance=ExtResource( 16 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -45.2491, -5.02563, 13.9151 )
+
+[node name="sign" type="Sprite3D" parent="Scenery"]
+transform = Transform( -1.31134e-08, 0, -1, 0, 0.3, 0, 0.3, 0, -4.37114e-08, 0.020659, -1.00473, 44.9681 )
+flip_h = true
+modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
+texture = ExtResource( 19 )
+
+[node name="sign2" type="Sprite3D" parent="Scenery"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.998, -1.45223, -21.0958 )
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+texture = ExtResource( 21 )
+
+[node name="sign3" type="Sprite3D" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92991, 3.04997, -39.9646 )
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+texture = ExtResource( 20 )
+
+[node name="desk_chair" parent="Scenery" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4538, -4.97751, 14.1953 )
+
+[node name="desk_chair2" parent="Scenery" instance=ExtResource( 17 )]
+transform = Transform( 0.857607, 0, -0.514305, 0, 1, 0, 0.514305, 0, 0.857607, -46.0803, -4.97751, 12.4131 )
+
+[node name="pipe" parent="Scenery" instance=ExtResource( 23 )]
+transform = Transform( 0.395114, 0.111209, -0.911876, -0.0442144, 0.993797, 0.102042, 0.917567, 0, 0.39758, 53.3391, -0.346637, 7.15627 )
+
+[node name="pipe2" parent="Scenery" instance=ExtResource( 23 )]
+transform = Transform( 0.428653, 0.112364, -0.896455, -0.044704, 0.993658, 0.103171, 0.902363, -0.00414964, 0.430958, 53.3391, -1.5008, 7.15627 )
+
+[node name="pipe3" parent="Scenery" instance=ExtResource( 23 )]
+transform = Transform( -0.999601, 0.0255228, -0.0121171, 0.0260015, 0.998815, -0.0411448, 0.0110526, -0.0414434, -0.99908, 43.9496, 0.894948, 27.464 )
+
+[node name="pipe4" parent="Scenery" instance=ExtResource( 23 )]
+transform = Transform( -0.999601, 0.0255228, -0.0121171, 0.0262107, 0.997825, -0.0604912, 0.0105469, -0.0607846, -0.998095, 45.2528, 0.894948, 26.521 )
+
+[node name="sideroom1" parent="." instance=ExtResource( 7 )]
+
+[node name="MeshInstance11" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.046, -2.51492, 7.27307 )
+use_in_baked_light = true
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="MeshInstance12" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0448, -2.51492, 12.3044 )
+use_in_baked_light = true
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="MeshInstance13" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -30.046, 0.23282, 9.69925 )
+use_in_baked_light = true
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="MeshInstance14" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.046, -2.51492, -27.6299 )
+use_in_baked_light = true
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="MeshInstance15" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0448, -2.51492, -22.5986 )
+use_in_baked_light = true
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="MeshInstance16" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -30.046, 0.23282, -25.2037 )
+use_in_baked_light = true
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="highlight" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -3.91011e-08, -0.44701, -0.894529, -1.95394e-08, 0.894529, -0.44701, 1, 0, -4.37114e-08, -54.9395, 9.92173, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight3" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -3.91011e-08, -0.44701, -0.894529, -1.95394e-08, 0.894529, -0.44701, 1, 0, -4.37114e-08, -53.1001, 10.8192, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight4" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -3.91011e-08, -0.44701, -0.894529, -1.95394e-08, 0.894529, -0.44701, 1, 0, -4.37114e-08, -50.9112, 11.9191, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight5" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45.3258, 13.0688, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight6" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48.0278, 13.0688, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight7" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42.8233, 13.0688, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight8" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -45.3181, 13.0688, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight2" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -3.91011e-08, -0.44701, -0.894529, -1.95394e-08, 0.894529, -0.44701, 1, 0, -4.37114e-08, -56.8507, 8.90792, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight9" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -4.70563e-08, 0.392289, 0.919842, -2.2416e-08, 0.919842, -0.392289, -1, -3.90788e-08, -3.44908e-08, -35.0448, 10.2968, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight10" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -4.70563e-08, 0.392289, 0.919842, -2.2416e-08, 0.919842, -0.392289, -1, -3.90788e-08, -3.44908e-08, -36.935, 11.0818, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight11" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -4.70563e-08, 0.392289, 0.919842, -2.2416e-08, 0.919842, -0.392289, -1, -3.90788e-08, -3.44908e-08, -39.1861, 12.0478, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight12" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -4.70563e-08, 0.392289, 0.919842, -2.2416e-08, 0.919842, -0.392289, -1, -3.90788e-08, -3.44908e-08, -33.076, 9.40005, -8.6626 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight13" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, -1.49012e-08, -5.96046e-08, -3.77142e-09, 0.978692, -0.205333, 6.26121e-08, 0.205333, 0.978692, -44.9633, 10.9359, 4.65353 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight14" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, -1.49012e-08, -5.96046e-08, -3.77142e-09, 0.978692, -0.205333, 6.26121e-08, 0.205333, 0.978692, -44.9633, 11.3371, 2.64657 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight15" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, -1.49012e-08, -5.96046e-08, -3.77142e-09, 0.978692, -0.205333, 6.26121e-08, 0.205333, 0.978692, -44.9633, 11.8455, 0.250263 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight16" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -1, 0, -1.49012e-08, 0, 1, 0, 0, 0, -1, -44.9633, 13.0688, -5.5981 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight17" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -1, 0, -1.49012e-08, 0, 1, 0, 0, 0, -1, -44.9633, 13.0688, -10.8027 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight18" type="MeshInstance" parent="sideroom1"]
+transform = Transform( 1, -1.49012e-08, -5.96046e-08, -3.77142e-09, 0.978692, -0.205333, 6.26121e-08, 0.205333, 0.978692, -44.9633, 10.4404, 6.75954 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight19" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -1, -2.23517e-08, -1.49012e-08, -2.50774e-08, 0.952193, -0.305496, 2.76004e-08, -0.305496, -0.952193, -44.9633, 11.3512, -22.7996 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight20" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -1, -2.23517e-08, -1.49012e-08, -2.50774e-08, 0.952193, -0.305496, 2.76004e-08, -0.305496, -0.952193, -44.9633, 11.958, -20.8449 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight21" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -1, -2.23517e-08, -1.49012e-08, -2.50774e-08, 0.952193, -0.305496, 2.76004e-08, -0.305496, -0.952193, -44.9633, 12.7115, -18.5141 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="highlight22" type="MeshInstance" parent="sideroom1"]
+transform = Transform( -1, -2.23517e-08, -1.49012e-08, -2.50774e-08, 0.952193, -0.305496, 2.76004e-08, -0.305496, -0.952193, -44.9633, 10.6405, -24.843 )
+use_in_baked_light = true
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -45.2724, 11.7693, -8.63735 )
+light_color = Color( 0.529412, 0.572549, 0.917647, 1 )
+light_energy = 7.95
+spot_range = 24.3385
+spot_angle = 42.2736
+
+[node name="sideroom2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8509, 0, 0 )
+
+[node name="trim" type="Spatial" parent="sideroom2"]
+
+[node name="MeshInstance" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9721, -2.51492, -0.131552 )
+use_in_baked_light = true
+mesh = SubResource( 22 )
+material/0 = SubResource( 23 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9733, -2.51492, 4.89977 )
+use_in_baked_light = true
+mesh = SubResource( 22 )
+material/0 = SubResource( 24 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 34.9721, 0.23282, 2.29463 )
+use_in_baked_light = true
+mesh = SubResource( 25 )
+material/0 = SubResource( 26 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9721, -2.51492, -30.0405 )
+use_in_baked_light = true
+mesh = SubResource( 22 )
+material/0 = SubResource( 27 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9721, -2.51492, -25.0015 )
+use_in_baked_light = true
+mesh = SubResource( 22 )
+material/0 = SubResource( 27 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 34.9721, 0.23282, -27.6143 )
+use_in_baked_light = true
+mesh = SubResource( 25 )
+material/0 = SubResource( 27 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8953, -3.37, 11.2574 )
+use_in_baked_light = true
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8953, -1.22331, 11.2574 )
+use_in_baked_light = true
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 34.8953, -2.26442, 7.4418 )
+use_in_baked_light = true
+mesh = SubResource( 30 )
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance10" type="MeshInstance" parent="sideroom2/trim"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 34.8953, -2.26442, 15.0426 )
+use_in_baked_light = true
+mesh = SubResource( 30 )
+material/0 = SubResource( 29 )
+
+[node name="Door" type="Spatial" parent="sideroom2"]
+transform = Transform( -3.62805e-08, 0, -1, 0, 1, 0, 0.83, 0, -4.37114e-08, 34.8811, -4.95015, 2.41329 )
+script = ExtResource( 12 )
+
+[node name="Door" type="StaticBody" parent="sideroom2/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="sideroom2/Door/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -0.0335293 )
+use_in_baked_light = true
+mesh = SubResource( 32 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="sideroom2/Door/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+shape = SubResource( 33 )
+
+[node name="Door2" type="StaticBody" parent="sideroom2/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="sideroom2/Door/Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -0.0335293 )
+use_in_baked_light = true
+mesh = SubResource( 32 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="sideroom2/Door/Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+shape = SubResource( 34 )
+
+[node name="frame" type="MeshInstance" parent="sideroom2/Door"]
+use_in_baked_light = true
+
+[node name="MeshInstance" type="MeshInstance" parent="sideroom2/Door/frame"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.50928, 0 )
+use_in_baked_light = true
+mesh = SubResource( 36 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="sideroom2/Door/frame"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.22647, 2.70942, 0 )
+use_in_baked_light = true
+mesh = SubResource( 38 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="sideroom2/Door/frame"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3.191, 2.72718, 0 )
+use_in_baked_light = true
+mesh = SubResource( 38 )
+material/0 = null
+
+[node name="Button" type="StaticBody" parent="sideroom2/Door" groups=[
+"Keypad",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95098, 1.89082, -0.0780869 )
+
+[node name="MeshInstance" type="MeshInstance" parent="sideroom2/Door/Button"]
+use_in_baked_light = true
+mesh = SubResource( 40 )
+material/0 = null
+
+[node name="Sprite3D" type="Sprite3D" parent="sideroom2/Door/Button/MeshInstance"]
+transform = Transform( 1.21544, 0, -1.13462e-08, 0, 1.50724, 0, -7.8164e-09, 0, 1, 0, 0, -0.0565968 )
+opacity = 0.48
+texture = ExtResource( 18 )
+
+[node name="CollisionShape" type="CollisionShape" parent="sideroom2/Door/Button"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00214195 )
+shape = SubResource( 41 )
+
+[node name="Area" type="Area" parent="sideroom2/Door/Button"]
+
+[node name="CollisionShape" type="CollisionShape" parent="sideroom2/Door/Button/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.529253 )
+shape = SubResource( 42 )
+
+[node name="Tween" type="Tween" parent="sideroom2/Door"]
+
+[node name="Timer" type="Timer" parent="sideroom2/Door"]
+wait_time = 5.0
+one_shot = true
+
+[node name="supports_high" parent="sideroom2" instance=ExtResource( 24 )]
+transform = Transform( 4.96488, 0, 0.591587, 0, 5, 0, -0.591587, 0, 4.96488, 61.3777, -10.8113, 29.107 )
+
+[node name="supports_high2" parent="sideroom2/supports_high" instance=ExtResource( 24 )]
+transform = Transform( 0.99983, 0, -0.0184471, 0, 1, 0, 0.0184471, 0, 0.99983, 2.1523, 0, 0.0212531 )
+
+[node name="MeshInstance" type="MeshInstance" parent="sideroom2/supports_high"]
+transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 1.06328, 1.02492, -0.00826883 )
+use_in_baked_light = true
+mesh = SubResource( 44 )
+material/0 = null
+
+[node name="CollisionShape2" type="CollisionShape" parent="sideroom2/supports_high"]
+transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 1.06328, 1.02492, -0.00826883 )
+shape = SubResource( 45 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 46 )
+
+[node name="lights" type="Spatial" parent="."]
+
+[node name="lamp15" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0963974, 25.1661, 14.7053 )
+use_in_baked_light = true
+mesh = SubResource( 48 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="lights/lamp15"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+light_color = Color( 0.992157, 0.992157, 0.752941, 1 )
+spot_range = 49.0
+spot_angle = 51.038
+
+[node name="lamp16" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0963974, 25.1661, -14.6584 )
+use_in_baked_light = true
+mesh = SubResource( 48 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="lights/lamp16"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+light_color = Color( 0.992157, 0.992157, 0.752941, 1 )
+spot_range = 49.0
+spot_angle = 51.038
+
+[node name="MeshInstance" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3.92555, 3.55873, 44.9447 )
+use_in_baked_light = true
+mesh = SubResource( 50 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="lights/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15256e-07, -1.51893, 4.20311 )
+light_color = Color( 0.447059, 0.117647, 0.117647, 1 )
+omni_range = 18.6326
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lights/MeshInstance/OmniLight"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 51 )
+
+[node name="SpotLight" type="SpotLight" parent="lights/MeshInstance"]
+light_color = Color( 0.945098, 0.129412, 0.129412, 1 )
+light_energy = 4.88
+spot_range = 6.0
+spot_angle = 22.7531
+
+[node name="SpotLight2" type="SpotLight" parent="lights/MeshInstance"]
+transform = Transform( -1, 0, 5.56362e-08, 0, 1, 0, -5.56362e-08, 0, -1, 0, 0, 0 )
+light_color = Color( 0.945098, 0.129412, 0.129412, 1 )
+light_energy = 4.88
+spot_range = 6.0
+spot_angle = 22.7531
+
+[node name="lamp" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 65.3105, 1.47787, 21 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+light_color = Color( 0.87451, 0.898039, 0.572549, 1 )
+spot_range = 27.0
+spot_angle = 71.6934
+
+[node name="lamp2" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 50.6994, 3.82654, -16.5564 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+light_color = Color( 0.847059, 0.835294, 0.529412, 1 )
+spot_range = 23.5763
+spot_angle = 66.2909
+
+[node name="lamp13" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 37.0776, -0.908931, -30.1543 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.198259, -0.155362 )
+light_color = Color( 0.729412, 0.498039, 0.196078, 1 )
+spot_range = 23.5763
+spot_angle = 66.2909
+
+[node name="lamp14" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 37.0776, -0.908931, -24.8289 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207027, -0.155362 )
+light_color = Color( 0.729412, 0.498039, 0.196078, 1 )
+spot_range = 23.5763
+spot_angle = 66.2909
+
+[node name="lamp3" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 29.8741, 4.87599, -39.8809 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp5" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -29.8821, 4.87599, -39.8809 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp6" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -29.8821, 4.87599, 39.8599 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp7" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -48.3254, 4.87599, 17.2303 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp9" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.3491, 4.87599, 7.24894 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp10" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.3491, 4.87599, -22.5387 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp8" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -48.3249, 4.87599, -32.4491 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp4" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 29.9098, 4.91117, 39.864 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="lamp11" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 40.9704, -0.311957, 16.2022 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp11"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+light_color = Color( 0.878431, 0.85098, 0.411765, 1 )
+spot_range = 7.46656
+spot_angle = 57.955
+
+[node name="lamp12" type="MeshInstance" parent="lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.5896, 0.145932, -0.0124799 )
+use_in_baked_light = true
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="SpotLight3" type="SpotLight" parent="lights/lamp12"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.155362 )
+spot_range = 23.5763
+spot_angle = 61.7345
+
+[node name="enemies" type="Spatial" parent="."]
+
+[node name="Enemy_spawner" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2586, -2.53265, -27.5909 )
+_enemy = ExtResource( 25 )
+
+[node name="Enemy_spawner2" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.5419, -2.53265, 22.2254 )
+_enemy = ExtResource( 25 )
+
+[node name="Enemy_spawner3" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5439, -9.61478, 22.2254 )
+_enemy = ExtResource( 28 )
+
+[node name="Enemy_spawner4" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4313, -2.53265, -12.8138 )
+_enemy = ExtResource( 28 )
+
+[node name="Enemy_spawner5" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4313, -2.53265, 9.54909 )
+_enemy = ExtResource( 26 )
+
+[node name="Enemy_spawner6" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8086, -2.53265, 31.6728 )
+_enemy = ExtResource( 26 )
+
+[node name="Enemy_spawner7" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3282, -2.53265, -6.59524 )
+_enemy = ExtResource( 26 )
+
+[node name="Enemy_spawner8" parent="enemies" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1439, -2.53265, 18.7573 )
+_enemy = ExtResource( 25 )
+
+[node name="pickups" type="Spatial" parent="."]
+
+[node name="Item_spawn" parent="pickups" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14271, -4.83358, 4.35808 )
+_item = ExtResource( 33 )
+
+[node name="Item_spawn2" parent="pickups" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5883, -4.83358, 10.9506 )
+_item = ExtResource( 34 )
+
+[node name="Item_spawn3" parent="pickups" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5438, -4.83358, -27.374 )
+_item = ExtResource( 29 )
+
+[node name="Item_spawn4" parent="pickups" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5904, -4.83358, -32.9117 )
+_item = ExtResource( 32 )
+
+[node name="health_spawner" parent="pickups" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0555, -4.70936, 33.7198 )
+
+[node name="health_spawner3" parent="pickups" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5276, -4.70936, 1.66835 )
+
+[node name="health_spawner2" parent="pickups" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.943, -10.2198, 22.4927 )
+
+[node name="lm" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.5093, 0 )
+extents = Vector3( 77.1623, 26.1909, 72.7391 )
+light_data = ExtResource( 35 )
+
+[connection signal="body_entered" from="hub/Boss_Door/Button/Area" to="hub/Boss_Door" method="_on_Area_body_entered"]
+[connection signal="timeout" from="hub/Boss_Door/Timer" to="hub/Boss_Door" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Scene_room_to_intro/Scene_trigger" to="." method="_on_Intro_Scene_trigger_body_entered"]
+[connection signal="body_entered" from="sideroom2/Door/Button/Area" to="sideroom2/Door" method="_on_Area_body_entered"]
+[connection signal="timeout" from="sideroom2/Door/Timer" to="sideroom2/Door" method="_on_Timer_timeout"]
+
+[editable path="Scene_room_to_intro"]

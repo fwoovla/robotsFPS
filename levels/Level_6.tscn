@@ -1,0 +1,1177 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://levels/kenney_walls/desk_chair.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/kenney_walls/machine_generator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/kenney_walls/hangar_largeB.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/kenney_walls/machine_barrelLarge.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/walls/big_floor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/kenney_walls/corridor_corner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/kenney_walls/corridor_wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/Level_6.gd" type="Script" id=8]
+[ext_resource path="res://media/sounds/SFX/Background/Hollow Wind.wav" type="AudioStream" id=9]
+[ext_resource path="res://media/textures/mixedsets/stone/conc_base02_c.png" type="Texture" id=10]
+[ext_resource path="res://media/textures/mixedsets/stone/conc_base01_c.png" type="Texture" id=11]
+[ext_resource path="res://mobs/Bad_bob.tscn" type="PackedScene" id=12]
+[ext_resource path="res://levels/kenney_walls/barrel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://levels/Spawn.tscn" type="PackedScene" id=14]
+[ext_resource path="res://levels/kenney_walls/structure_diagonal.tscn" type="PackedScene" id=15]
+[ext_resource path="res://levels/waves.tscn" type="PackedScene" id=16]
+[ext_resource path="res://levels/kenney_walls/desk_computerCorner.tscn" type="PackedScene" id=17]
+[ext_resource path="res://items/Item_spawner.tscn" type="PackedScene" id=18]
+[ext_resource path="res://items/Pea_shooter_item.tscn" type="PackedScene" id=19]
+[ext_resource path="res://items/health_spawner.tscn" type="PackedScene" id=20]
+[ext_resource path="res://items/sparkle_gun_item.tscn" type="PackedScene" id=21]
+[ext_resource path="res://items/Blooper_item.tscn" type="PackedScene" id=22]
+[ext_resource path="res://items/Enemy_spawner.tscn" type="PackedScene" id=23]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.658824, 0.658824, 0.658824, 1 )
+albedo_texture = ExtResource( 11 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.501961, 0.498039, 0.498039, 1 )
+albedo_texture = ExtResource( 10 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.901961, 0.878431, 0.745098, 1 )
+albedo_texture = ExtResource( 10 )
+uv1_triplanar = true
+
+[sub_resource type="ArrayMesh" id=4]
+resource_name = "corridor_wall"
+lightmap_size_hint = Vector2( 42, 38 )
+surfaces/0 = {
+"aabb": AABB( 0.4, 0, -0.5, 0.10001, 0.1, 1.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 0, 60, 24, 56, 229, 59, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 223, 193, 24, 56, 114, 59, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 223, 193, 24, 34, 114, 59, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 0, 60, 24, 34, 229, 59, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 223, 193, 24, 34, 121, 54, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 223, 193, 24, 56, 121, 54, 205, 204, 204, 62, 0, 0, 0, 0, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 0, 60, 24, 56, 94, 55, 205, 204, 204, 62, 0, 0, 0, 0, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 0, 60, 24, 34, 94, 55, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 223, 203, 223, 193, 18, 57, 53, 58, 205, 204, 204, 62, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 223, 203, 0, 60, 170, 56, 53, 58, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 235, 204, 0, 60, 170, 56, 40, 57, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 235, 204, 223, 193, 18, 57, 40, 57, 205, 204, 204, 62, 0, 0, 0, 0, 0, 0, 0, 191, 0, 129, 0, 0, 129, 0, 0, 127, 223, 203, 171, 204, 48, 58, 188, 34, 205, 204, 204, 62, 0, 0, 0, 0, 0, 0, 0, 63, 0, 129, 0, 0, 129, 0, 0, 127, 223, 203, 43, 77, 48, 58, 134, 56, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 129, 0, 0, 129, 0, 0, 127, 235, 204, 43, 77, 36, 59, 134, 56, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 129, 0, 0, 129, 0, 0, 127, 235, 204, 171, 204, 36, 59, 188, 34, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 235, 76, 223, 193, 18, 57, 229, 59, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 235, 76, 0, 60, 170, 56, 229, 59, 205, 204, 204, 62, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 223, 75, 0, 60, 170, 56, 215, 58, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 223, 75, 223, 193, 18, 57, 215, 58 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0, 4, 0, 5, 0, 6, 0, 6, 0, 7, 0, 4, 0, 8, 0, 9, 0, 10, 0, 10, 0, 11, 0, 8, 0, 12, 0, 13, 0, 14, 0, 14, 0, 15, 0, 12, 0, 16, 0, 17, 0, 18, 0, 18, 0, 19, 0, 16, 0 ),
+"blend_shape_data": [  ],
+"format": 97591,
+"index_count": 30,
+"material": SubResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 20
+}
+surfaces/1 = {
+"aabb": AABB( 0.4, 0.1, -0.5, 0.10001, 0.7, 1.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 235, 76, 223, 198, 121, 57, 229, 59, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 235, 76, 223, 193, 18, 57, 229, 59, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 223, 75, 223, 193, 18, 57, 215, 58, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 223, 75, 223, 198, 121, 57, 215, 58, 205, 204, 204, 62, 205, 204, 76, 63, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 159, 207, 24, 34, 188, 34, 205, 204, 204, 62, 205, 204, 76, 63, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 159, 207, 24, 56, 188, 34, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 95, 203, 24, 56, 148, 51, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 95, 203, 24, 34, 148, 51, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 223, 193, 24, 34, 114, 59, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 223, 193, 24, 56, 114, 59, 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 223, 198, 24, 56, 0, 59, 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 223, 198, 24, 34, 0, 59, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 95, 203, 24, 34, 26, 58, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 95, 203, 24, 56, 26, 58, 0, 0, 0, 63, 205, 204, 76, 63, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 159, 207, 24, 56, 80, 56, 0, 0, 0, 63, 205, 204, 76, 63, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 159, 207, 24, 34, 80, 56, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 223, 198, 24, 34, 148, 53, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 223, 198, 24, 56, 148, 53, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 223, 193, 24, 56, 121, 54, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 223, 193, 24, 34, 121, 54, 0, 0, 0, 63, 205, 204, 76, 63, 0, 0, 0, 63, 0, 127, 0, 0, 127, 0, 0, 127, 235, 76, 43, 77, 158, 57, 134, 56, 205, 204, 204, 62, 205, 204, 76, 63, 0, 0, 0, 63, 0, 127, 0, 0, 127, 0, 0, 127, 223, 75, 43, 77, 170, 56, 134, 56, 205, 204, 204, 62, 205, 204, 76, 63, 0, 0, 0, 191, 0, 127, 0, 0, 127, 0, 0, 127, 223, 75, 171, 204, 170, 56, 188, 34, 0, 0, 0, 63, 205, 204, 76, 63, 0, 0, 0, 191, 0, 127, 0, 0, 127, 0, 0, 127, 235, 76, 171, 204, 158, 57, 188, 34, 0, 0, 0, 63, 205, 204, 76, 63, 0, 0, 0, 63, 0, 0, 127, 0, 126, 0, 0, 127, 235, 76, 159, 207, 231, 59, 229, 59, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 235, 76, 95, 203, 73, 58, 229, 59, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 63, 0, 0, 127, 0, 126, 0, 0, 127, 223, 75, 95, 203, 73, 58, 215, 58, 205, 204, 204, 62, 205, 204, 76, 63, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 223, 75, 159, 207, 231, 59, 215, 58, 205, 204, 204, 62, 205, 204, 76, 63, 0, 0, 0, 191, 0, 0, 129, 0, 130, 0, 0, 127, 223, 203, 159, 207, 231, 59, 53, 58, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 223, 203, 95, 203, 73, 58, 53, 58, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 191, 0, 0, 129, 0, 130, 0, 0, 127, 235, 204, 95, 203, 73, 58, 40, 57, 0, 0, 0, 63, 205, 204, 76, 63, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 235, 204, 159, 207, 231, 59, 40, 57, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 223, 203, 223, 198, 121, 57, 53, 58, 205, 204, 204, 62, 205, 204, 204, 61, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 223, 203, 223, 193, 18, 57, 53, 58, 0, 0, 0, 63, 205, 204, 204, 61, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 235, 204, 223, 193, 18, 57, 40, 57, 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 235, 204, 223, 198, 121, 57, 40, 57 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0, 4, 0, 5, 0, 6, 0, 6, 0, 7, 0, 4, 0, 8, 0, 9, 0, 10, 0, 10, 0, 11, 0, 8, 0, 12, 0, 13, 0, 14, 0, 14, 0, 15, 0, 12, 0, 16, 0, 17, 0, 18, 0, 18, 0, 19, 0, 16, 0, 20, 0, 21, 0, 22, 0, 22, 0, 23, 0, 20, 0, 24, 0, 25, 0, 26, 0, 26, 0, 27, 0, 24, 0, 28, 0, 29, 0, 30, 0, 30, 0, 31, 0, 28, 0, 32, 0, 33, 0, 34, 0, 34, 0, 35, 0, 32, 0 ),
+"blend_shape_data": [  ],
+"format": 97591,
+"index_count": 54,
+"material": SubResource( 2 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 36
+}
+surfaces/2 = {
+"aabb": AABB( 0.4, 0.2, -0.5, 0.10001, 0.2, 1 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 223, 198, 24, 34, 0, 59, 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 223, 198, 24, 56, 0, 59, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 63, 127, 0, 0, 0, 0, 0, 129, 127, 235, 204, 95, 203, 24, 56, 26, 58, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 191, 127, 0, 0, 0, 0, 0, 129, 127, 235, 76, 95, 203, 24, 34, 26, 58, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 95, 203, 24, 34, 148, 51, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 95, 203, 24, 56, 148, 51, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 63, 129, 0, 0, 0, 0, 0, 127, 127, 235, 76, 223, 198, 24, 56, 148, 53, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 191, 129, 0, 0, 0, 0, 0, 127, 127, 235, 204, 223, 198, 24, 34, 148, 53, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 235, 76, 95, 203, 73, 58, 229, 59, 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 235, 76, 223, 198, 121, 57, 229, 59, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 223, 75, 223, 198, 121, 57, 215, 58, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 63, 0, 0, 127, 0, 127, 0, 0, 127, 223, 75, 95, 203, 73, 58, 215, 58, 205, 204, 204, 62, 205, 204, 204, 62, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 223, 203, 95, 203, 73, 58, 53, 58, 205, 204, 204, 62, 205, 204, 76, 62, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 223, 203, 223, 198, 121, 57, 53, 58, 0, 0, 0, 63, 205, 204, 76, 62, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 235, 204, 223, 198, 121, 57, 40, 57, 0, 0, 0, 63, 205, 204, 204, 62, 0, 0, 0, 191, 0, 0, 129, 0, 129, 0, 0, 127, 235, 204, 95, 203, 73, 58, 40, 57 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0, 4, 0, 5, 0, 6, 0, 6, 0, 7, 0, 4, 0, 8, 0, 9, 0, 10, 0, 10, 0, 11, 0, 8, 0, 12, 0, 13, 0, 14, 0, 14, 0, 15, 0, 12, 0 ),
+"blend_shape_data": [  ],
+"format": 97591,
+"index_count": 24,
+"material": SubResource( 3 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 16
+}
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.945098, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0.976471, 0.945098, 0.156863, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.945098, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0.156863, 0.843137, 0.976471, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.945098, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0.898039, 0.0823529, 0.270588, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="ProceduralSky" id=9]
+sky_top_color = Color( 0.258824, 0.262745, 0.258824, 1 )
+sky_horizon_color = Color( 0.0901961, 0.0901961, 0.0941176, 1 )
+sky_curve = 0.0658838
+sky_energy = 0.2
+sun_color = Color( 0.862745, 0.839216, 0.27451, 1 )
+sun_latitude = 51.12
+sun_angle_max = 30.15
+sun_curve = 0.0217637
+
+[sub_resource type="Environment" id=10]
+background_mode = 2
+background_sky = SubResource( 9 )
+ambient_light_color = Color( 0.466667, 0.466667, 0.466667, 1 )
+ambient_light_energy = 0.35
+ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+fog_sun_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+fog_depth_begin = 40.0
+dof_blur_far_distance = 52.38
+glow_enabled = true
+glow_intensity = 1.13
+glow_strength = 1.14
+glow_bloom = 0.37
+
+[node name="Level_6" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="waves" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5263, 3.82514, -57.6926 )
+
+[node name="Spawns" type="Spatial" parent="."]
+
+[node name="1" parent="Spawns" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3496, 0.0421803, 24.3711 )
+
+[node name="2" parent="Spawns" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3496, 0.0421803, 19.4355 )
+
+[node name="walls" type="Spatial" parent="."]
+
+[node name="floor" type="Spatial" parent="walls"]
+
+[node name="big_floor" parent="walls/floor" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+
+[node name="big_floor2" parent="walls/floor" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -60 )
+
+[node name="walls" type="Spatial" parent="walls"]
+
+[node name="hangar_largeB" parent="walls/walls" instance=ExtResource( 3 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 22, 0, 18 )
+
+[node name="corridor_wall" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 26, 0, 2 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall2" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 26, 0, -6 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall2" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall3" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 18, 0, -6 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall3" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall4" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 18, 0, -14 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall4" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall5" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 26, 0, -14 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall5" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall56" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 10, 0, -6 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall56" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall6" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 26, 0, -22 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall6" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall7" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 1.04907e-06, 0, -8, 0, 8, 0, 8, 0, 1.04907e-06, 18, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall7" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall8" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 1.04907e-06, 0, -8, 0, 8, 0, 8, 0, 1.04907e-06, 26, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall8" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall57" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -5.65686, 0, 5.65685, 0, 8, 0, -5.65685, 0, -5.65686, -9.17157, 0, -4.82843 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall57" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall58" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -5.65686, 0, 5.65685, 0, 8, 0, -5.65685, 0, -5.65686, -14.8284, 0, 0.828431 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall58" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall59" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 5.99072, 0, 5.30201, 0, 8, 0, -5.30201, 0, 5.99072, -24.4803, 0, 15.3404 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall59" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall60" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 5.99072, 0, 5.30201, 0, 8, 0, -5.30201, 0, 5.99072, -29.7823, 0, 9.34972 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall60" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall9" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 1.04907e-06, 0, -8, 0, 8, 0, 8, 0, 1.04907e-06, -6, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall9" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall10" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 1.04907e-06, 0, -8, 0, 8, 0, 8, 0, 1.04907e-06, 2, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall10" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall15" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 2, 0, -6 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall15" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall16" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -6, 0, -6 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall16" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall17" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, 10, 0, -38 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall17" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall18" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, 10, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall18" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall19" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 14, 0, 19 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall19" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall20" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 6, 0, 19 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall20" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall21" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -2, 0, 19 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall21" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall22" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -10, 0, 19 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall22" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall23" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -18, 0, 19 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall23" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall24" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -26, 0, 19 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall24" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall25" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, 3 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall25" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall26" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, 11 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall26" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall27" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -13 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall27" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall28" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -5 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall28" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall29" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -29 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall29" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall30" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -21 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall30" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall31" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -45 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall31" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall32" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -37 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall32" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall35" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -77 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall35" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall36" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -69 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall36" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall37" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -93 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall37" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall38" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall38" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall39" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -18, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall39" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall40" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -26, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall40" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall41" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -2, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall41" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall42" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, -10, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall42" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall43" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 14, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall43" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall44" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 6, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall44" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall45" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 30, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall45" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall46" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -1.74846e-06, 0, 8, 0, 8, 0, -8, 0, -1.74846e-06, 22, 0, -85 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall46" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall47" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 21, 0, -76 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall47" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall48" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 21, 0, -84 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall48" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall49" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 21, 0, -68 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall49" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall50" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 21, 0, -52 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall50" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall51" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 21, 0, -60 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall51" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall52" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 21, 0, -44 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall52" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall53" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 21, 0, -36 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall53" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall54" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 5.65686, 0, -5.65685, 0, 8, 0, 5.65685, 0, 5.65686, 19, 0, -32 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall54" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall33" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -61 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall33" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall34" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -26, 0, -53 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall34" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall11" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 2, 0, -14 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall11" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall12" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 2, 0, -22 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall12" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall55" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 4, 0, -6.9282, 0, 8, 0, 6.9282, 0, 4, 16.0961, 0, -6.7323 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall55" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall13" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -6, 0, -22 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall13" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall14" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, -6, 0, -14 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall14" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall61" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 2.44784e-06, 0, -8, 0, 8, 0, 8, 0, 2.44784e-06, -27, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall61" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall62" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 2.44784e-06, 0, -8, 0, 8, 0, 8, 0, 2.44784e-06, -19, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall62" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall63" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -3.49691e-06, 0, 8, 0, 3.49691e-06, 0, -8, -11, 0, -38 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall63" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall64" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -3.49691e-06, 0, 8, 0, 3.49691e-06, 0, -8, -11, 0, -30 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall64" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall65" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -3.49691e-06, 0, 8, 0, 3.49691e-06, 0, -8, -11, 0, -54 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall65" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall66" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -3.49691e-06, 0, 8, 0, 3.49691e-06, 0, -8, -11, 0, -46 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall66" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00956273, 0 )
+mesh = SubResource( 4 )
+
+[node name="corridor_wall75" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 3.8466e-06, 0, -8, 0, 8, 0, 8, 0, 3.8466e-06, -11, 0, -50 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall75" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall76" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 3.8466e-06, 0, -8, 0, 8, 0, 8, 0, 3.8466e-06, -3, 0, -50 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall76" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall82" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 3.8466e-06, 0, -8, 0, 8, 0, 8, 0, 3.8466e-06, 16, 0, -50 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall82" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall83" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 3.8466e-06, 0, -8, 0, 8, 0, 8, 0, 3.8466e-06, 24, 0, -50 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall83" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall77" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 5.51413, 0, -5.79607, 0, 8, 0, 5.79607, 0, 5.51413, -14.1385, 0, -46.1841 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall77" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall67" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -5.65685, 0, -5.65686, 0, 8, 0, 5.65686, 0, -5.65685, -13.8284, 0, -88.8284 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall67" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall68" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -5.65685, 0, -5.65686, 0, 8, 0, 5.65686, 0, -5.65685, -8.17157, 0, -83.1716 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall68" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall69" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -5.65686, 0, 5.65685, 0, 8, 0, -5.65685, 0, -5.65686, 2.60097, 0, -83.8284 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall69" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall70" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -5.65686, 0, 5.65685, 0, 8, 0, -5.65685, 0, -5.65686, -3.05589, 0, -78.1716 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall70" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall71" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -11.8895, 0, -74.6786 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall71" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall72" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -3.49691e-07, 0, 8, 0, 8, 0, -8, 0, -3.49691e-07, -4.55172, 0, -69.0218 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall72" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall73" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -3.49691e-07, 0, 8, 0, 8, 0, -8, 0, -3.49691e-07, 3.44828, 0, -69.0218 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall73" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall78" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 8, 0, 1.39876e-06, 0, 8, 0, -1.39876e-06, 0, 8, 1.44828, 0, -59.0218 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall78" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall80" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -8, 0, -2.09815e-06, 0, 8, 0, 2.09815e-06, 0, -8, 1.44828, 0, -59.0218 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall80" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall81" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 2.44784e-06, 0, -8, 0, 8, 0, 8, 0, 2.44784e-06, 1.44828, 0, -67.0218 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall81" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall79" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( 1.04907e-06, 0, -8, 0, 8, 0, 8, 0, 1.04907e-06, 1.44828, 0, -59.0218 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall79" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_wall74" parent="walls/walls" instance=ExtResource( 7 )]
+transform = Transform( -3.49691e-07, 0, 8, 0, 8, 0, -8, 0, -3.49691e-07, 20.4483, 0, -69.0218 )
+
+[node name="corridor_wall" parent="walls/walls/corridor_wall74" index="0"]
+mesh = SubResource( 4 )
+
+[node name="corridor_corner" parent="walls/walls" instance=ExtResource( 6 )]
+transform = Transform( -8, 0, -6.99382e-07, 0, 8, 0, 6.99382e-07, 0, -8, 18, 0, 2 )
+
+[node name="Scenery" type="Spatial" parent="."]
+
+[node name="barrel" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 16.7255, 0, 0.304487 )
+
+[node name="barrel" parent="Scenery/barrel" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel2" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 7.48612, 0, 2.82101, 0, 8, 0, -2.82101, 0, 7.48612, 18.8618, 0, 0.304487 )
+
+[node name="barrel" parent="Scenery/barrel2" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel3" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 7.48612, 0, 2.82101, 0, 8, 0, -2.82101, 0, 7.48612, 17.7363, 0, 2.21574 )
+
+[node name="barrel" parent="Scenery/barrel3" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel5" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 7.48612, 0, 2.82101, 0, 8, 0, -2.82101, 0, 7.48612, -9.31489, 0, -6.13816 )
+
+[node name="barrel" parent="Scenery/barrel5" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel6" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 7.48612, 0, 2.82101, 0, 8, 0, -2.82101, 0, 7.48612, -5.31489, 0, -76.1382 )
+
+[node name="barrel" parent="Scenery/barrel6" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel11" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 7.48612, 0, 2.82101, 0, 8, 0, -2.82101, 0, 7.48612, -5.50861, 0, -78.6388 )
+
+[node name="barrel" parent="Scenery/barrel11" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel12" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 7.48612, 0, 2.82101, 0, 8, 0, -2.82101, 0, 7.48612, 20.3219, 0, -70.9824 )
+
+[node name="barrel" parent="Scenery/barrel12" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel7" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 5.07266, 0, 6.18612, 0, 8, 0, -6.18612, 0, 5.07266, -6.31489, 0, -74.1382 )
+
+[node name="barrel" parent="Scenery/barrel7" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel8" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 5.07266, 0, 6.18612, 0, 8, 0, -6.18612, 0, 5.07266, -4.31489, 0, -74.1382 )
+
+[node name="barrel" parent="Scenery/barrel8" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel9" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 6.04902, 0, 5.23539, 0, 8, 0, -5.23539, 0, 6.04902, -2.31489, 0, -75.0121 )
+
+[node name="barrel" parent="Scenery/barrel9" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel10" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 6.83008, 0, 4.16534, 0, 8, 0, -4.16534, 0, 6.83008, -0.720532, 0, -74.1546 )
+
+[node name="barrel" parent="Scenery/barrel10" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.00710301, 0 )
+
+[node name="barrel4" parent="Scenery" instance=ExtResource( 13 )]
+transform = Transform( 7.48612, 0, 2.82101, 0, 8, 0, -2.82101, 0, 7.48612, 16.6925, -0.562745, 17.4461 )
+
+[node name="barrel" parent="Scenery/barrel4" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0626907, 0 )
+
+[node name="CollisionShape" parent="Scenery/barrel4" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0546028, 0 )
+
+[node name="desk_chair" parent="Scenery" instance=ExtResource( 1 )]
+transform = Transform( 5.65932, 0, -5.65439, 0, 8, 0, 5.65439, 0, 5.65932, 27.7674, 0, 20.5241 )
+
+[node name="desk_chair2" parent="Scenery" instance=ExtResource( 1 )]
+transform = Transform( 3.99698, 0, 6.92995, 0, 8, 0, -6.92995, 0, 3.99698, 25.7674, 0, 24.5241 )
+
+[node name="desk_chair3" parent="Scenery" instance=ExtResource( 1 )]
+transform = Transform( -6.92995, 0, 3.99698, 0, 8, 0, -3.99698, 0, -6.92995, 20.7674, 0, -84.4759 )
+
+[node name="machine_generator" parent="Scenery" instance=ExtResource( 2 )]
+transform = Transform( -3.49691e-07, 0, -8, 0, 8, 0, 8, 0, -3.49691e-07, 16.5683, 0, 10.9973 )
+
+[node name="machine_generator2" parent="Scenery" instance=ExtResource( 2 )]
+transform = Transform( -3.49691e-07, 0, 8, 0, 8, 0, -8, 0, -3.49691e-07, 21.9752, 0, -76.5155 )
+
+[node name="desk_computerCorner" parent="Scenery" instance=ExtResource( 17 )]
+transform = Transform( -3.49691e-07, 0, 8, 0, 8, 0, -8, 0, -3.49691e-07, 26.2881, 0, 25.1906 )
+
+[node name="desk_computerCorner2" parent="Scenery" instance=ExtResource( 17 )]
+transform = Transform( -8, 0, -6.99382e-07, 0, 8, 0, 6.99382e-07, 0, -8, 21.2881, 0, -84.8094 )
+
+[node name="structure_diagonal" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -1.75178, 0, 3.38153 )
+
+[node name="structure_diagonal2" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -1.75178, 8, 3.38153 )
+
+[node name="structure_diagonal3" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -10.7518, 0, -45.6185 )
+
+[node name="structure_diagonal4" parent="Scenery" instance=ExtResource( 15 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -10.7518, 8, -45.6185 )
+
+[node name="machine_barrelLarge" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -14, 0, -14 )
+
+[node name="machine_barrelLarge3" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -24, 0, -34 )
+
+[node name="machine_barrelLarge4" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -24, 0, -82 )
+
+[node name="machine_barrelLarge2" parent="Scenery" instance=ExtResource( 4 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -25, 0, -14 )
+
+[node name="lightblock" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, 1.91838, 15.1867, 7.15389 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock2" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, 1.91838, 15.1867, -0.300495 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock3" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, -5.42522, 15.1867, -0.300495 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock5" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, -6.95565, 15.1867, -41.9949 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock6" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, -7.10583, 15.1867, -49.5173 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock7" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, -14.3014, 15.1867, -49.4491 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock8" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, -14.3014, 15.1867, -41.6522 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock9" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.936, 4.82728, -17.3345 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock10" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.936, 4.82728, -14.3345 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock11" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.936, 4.82728, -11.3345 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock12" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.936, 4.82728, -8.33447 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock13" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.936, 4.82728, -5.33447 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock14" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.936, 4.82728, -0.334467 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock15" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.936, 4.82728, 5.66553 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock17" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.064, 4.82728, -12.3345 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock19" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.064, 4.82728, -26.0258 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock20" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.064, 4.82728, -1.02579 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock31" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.103, 4.82728, -51.6732 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock32" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.103, 4.82728, -57.8166 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock33" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.103, 4.82728, -64.9897 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock34" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784369, 4.82728, -72.1004 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock35" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.189, 4.82728, -39.1854 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock36" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1798, 4.82728, -16.6139 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock37" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0557, 4.82728, -9.93331 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock21" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.064, 4.82728, -19.0258 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock28" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7467, 4.82728, -87.9909 )
+mesh = SubResource( 5 )
+material = SubResource( 7 )
+
+[node name="lightblock29" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.74673, 4.82728, -87.9909 )
+mesh = SubResource( 5 )
+material = SubResource( 7 )
+
+[node name="lightblock30" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0463, 4.82728, -81.9909 )
+mesh = SubResource( 5 )
+material = SubResource( 7 )
+
+[node name="lightblock22" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.064, 4.82728, -35.0258 )
+mesh = SubResource( 5 )
+material = SubResource( 8 )
+
+[node name="lightblock23" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.064, 4.82728, -50.0258 )
+mesh = SubResource( 5 )
+material = SubResource( 8 )
+
+[node name="lightblock24" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.064, 4.82728, -67.0258 )
+mesh = SubResource( 5 )
+material = SubResource( 8 )
+
+[node name="lightblock25" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.064, 4.82728, -81.0258 )
+mesh = SubResource( 5 )
+material = SubResource( 8 )
+
+[node name="lightblock26" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.064, 4.82728, -88.1493 )
+mesh = SubResource( 5 )
+material = SubResource( 8 )
+
+[node name="lightblock27" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75262, 4.82728, -75.1493 )
+mesh = SubResource( 5 )
+material = SubResource( 8 )
+
+[node name="lightblock18" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.064, 4.82728, -21.3345 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock16" type="CSGMesh" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.936, 4.82728, 11.6655 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="lightblock4" type="CSGMesh" parent="Scenery"]
+transform = Transform( 0.751656, 0, 0.659556, 0, 1, 0, -0.659556, 0, 0.751656, -5.45173, 15.1867, 6.96492 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="Pickups" type="Spatial" parent="."]
+
+[node name="health_spawner" parent="Pickups" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8524, 0, -54.197 )
+
+[node name="Item_spawn" parent="Pickups" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0076, 0, 17.8792 )
+_item = ExtResource( 19 )
+
+[node name="Item_spawn2" parent="Pickups" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1341, 0, -49.4568 )
+_item = ExtResource( 19 )
+
+[node name="Item_spawn3" parent="Pickups" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6026, 0, -80.2535 )
+_item = ExtResource( 21 )
+
+[node name="Item_spawn4" parent="Pickups" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4567, 0, -29.2527 )
+_item = ExtResource( 22 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 10 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="LIGHTS" type="Spatial" parent="."]
+
+[node name="spotlight3" type="OmniLight" parent="LIGHTS"]
+transform = Transform( -0.644523, -0.756739, -0.109257, 0.474303, -0.507799, 0.71915, -0.599689, 0.411688, 0.686211, 23.0428, 7.84761, 14.5803 )
+light_color = Color( 0.921569, 0.764706, 0.764706, 1 )
+shadow_enabled = true
+omni_range = 23.2514
+
+[node name="DirectionalLight" type="DirectionalLight" parent="LIGHTS"]
+transform = Transform( 0.836516, -0.516735, 0.182278, -0.203674, 0.0155939, 0.978915, -0.508682, -0.856003, -0.0922008, 0, 24.6949, 0 )
+visible = false
+light_color = Color( 0.443137, 0.447059, 0.427451, 1 )
+light_energy = 0.2
+
+[node name="SpotLight" type="SpotLight" parent="LIGHTS"]
+transform = Transform( 0.290969, 0.899536, -0.325841, 0, 0.340576, 0.940217, 0.956732, -0.273574, 0.0990973, 2.27478, 15.4522, -0.543942 )
+spot_range = 22.436
+spot_angle = 23.9993
+
+[node name="SpotLight2" type="SpotLight" parent="LIGHTS"]
+transform = Transform( -0.261094, -0.907604, 0.328763, 0, 0.340576, 0.940217, -0.965313, 0.245485, -0.0889225, -5.80678, 15.3605, 7.49231 )
+spot_range = 22.0
+spot_angle = 27.324
+
+[node name="SpotLight3" type="SpotLight" parent="LIGHTS"]
+transform = Transform( 0.965313, -0.245485, 0.0889225, -0.0289001, 0.238022, 0.97083, -0.25949, -0.939725, 0.222672, -5.73615, 15.3075, -0.622007 )
+spot_range = 21.0
+spot_angle = 22.1645
+
+[node name="SpotLight4" type="SpotLight" parent="LIGHTS"]
+transform = Transform( -0.497958, 0.815357, -0.295348, 0, 0.340576, 0.940217, 0.867201, 0.468189, -0.169593, 2.23478, 15.2289, 7.54982 )
+spot_range = 22.0
+spot_angle = 33.555
+
+[node name="SpotLight9" type="SpotLight" parent="LIGHTS"]
+transform = Transform( -0.471654, 0.881514, 0.021792, 0.0931283, 0.0252226, 0.995335, 0.876852, 0.471483, -0.0939902, 26.3982, 7.63706, 25.7347 )
+light_color = Color( 0.65098, 0.807843, 0.835294, 1 )
+light_energy = 2.0
+spot_range = 12.5049
+spot_angle = 34.6617
+
+[node name="SpotLight5" type="SpotLight" parent="LIGHTS"]
+transform = Transform( 0.626084, 0.538189, -0.564244, 0.328492, 0.474228, 0.816824, 0.707186, -0.69675, 0.120115, -6.4636, 14.855, -49.7443 )
+spot_range = 39.0567
+spot_angle = 36.5625
+
+[node name="SpotLight6" type="SpotLight" parent="LIGHTS"]
+transform = Transform( -0.260257, -0.877453, 0.402918, 0.020885, 0.412085, 0.910906, -0.965313, 0.245485, -0.0889225, -14.7651, 15.0993, -41.0778 )
+light_color = Color( 0.862745, 0.670588, 0.670588, 1 )
+spot_range = 32.5987
+spot_angle = 31.6439
+
+[node name="SpotLight7" type="SpotLight" parent="LIGHTS"]
+transform = Transform( 0.960113, 0.184925, 0.209729, -0.279331, 0.600595, 0.749173, 0.0125786, -0.777875, 0.628294, -14.6909, 15.2445, -49.8596 )
+light_color = Color( 0.878431, 0.647059, 0.647059, 1 )
+spot_range = 68.9315
+spot_angle = 29.9879
+
+[node name="SpotLight8" type="SpotLight" parent="LIGHTS"]
+transform = Transform( -0.801974, 0.561647, -0.203446, 0, 0.340576, 0.940217, 0.597359, 0.754029, -0.273133, -6.70868, 15.2018, -41.6669 )
+spot_range = 26.9122
+spot_angle = 30.9021
+
+[node name="OmniLight" type="OmniLight" parent="LIGHTS"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90163, 10.1548, -83.0087 )
+light_color = Color( 0.705882, 0.894118, 0.886275, 1 )
+omni_range = 20.8942
+
+[node name="OmniLight2" type="OmniLight" parent="LIGHTS"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6812, 7.49148, -16.8146 )
+omni_range = 15.2777
+
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="Enemy_spawner3" parent="Enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3205, 1.89934, -39.1153 )
+_enemy = ExtResource( 12 )
+
+[node name="Enemy_spawner4" parent="Enemies" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3205, 1.89934, -49.6288 )
+_enemy = ExtResource( 12 )
+
+[editable path="walls/walls/hangar_largeB"]
+[editable path="walls/walls/corridor_wall"]
+[editable path="walls/walls/corridor_wall2"]
+[editable path="walls/walls/corridor_wall3"]
+[editable path="walls/walls/corridor_wall4"]
+[editable path="walls/walls/corridor_wall5"]
+[editable path="walls/walls/corridor_wall56"]
+[editable path="walls/walls/corridor_wall6"]
+[editable path="walls/walls/corridor_wall7"]
+[editable path="walls/walls/corridor_wall8"]
+[editable path="walls/walls/corridor_wall57"]
+[editable path="walls/walls/corridor_wall58"]
+[editable path="walls/walls/corridor_wall59"]
+[editable path="walls/walls/corridor_wall60"]
+[editable path="walls/walls/corridor_wall9"]
+[editable path="walls/walls/corridor_wall10"]
+[editable path="walls/walls/corridor_wall15"]
+[editable path="walls/walls/corridor_wall16"]
+[editable path="walls/walls/corridor_wall17"]
+[editable path="walls/walls/corridor_wall18"]
+[editable path="walls/walls/corridor_wall19"]
+[editable path="walls/walls/corridor_wall20"]
+[editable path="walls/walls/corridor_wall21"]
+[editable path="walls/walls/corridor_wall22"]
+[editable path="walls/walls/corridor_wall23"]
+[editable path="walls/walls/corridor_wall24"]
+[editable path="walls/walls/corridor_wall25"]
+[editable path="walls/walls/corridor_wall26"]
+[editable path="walls/walls/corridor_wall27"]
+[editable path="walls/walls/corridor_wall28"]
+[editable path="walls/walls/corridor_wall29"]
+[editable path="walls/walls/corridor_wall30"]
+[editable path="walls/walls/corridor_wall31"]
+[editable path="walls/walls/corridor_wall32"]
+[editable path="walls/walls/corridor_wall35"]
+[editable path="walls/walls/corridor_wall36"]
+[editable path="walls/walls/corridor_wall37"]
+[editable path="walls/walls/corridor_wall38"]
+[editable path="walls/walls/corridor_wall39"]
+[editable path="walls/walls/corridor_wall40"]
+[editable path="walls/walls/corridor_wall41"]
+[editable path="walls/walls/corridor_wall42"]
+[editable path="walls/walls/corridor_wall43"]
+[editable path="walls/walls/corridor_wall44"]
+[editable path="walls/walls/corridor_wall45"]
+[editable path="walls/walls/corridor_wall46"]
+[editable path="walls/walls/corridor_wall47"]
+[editable path="walls/walls/corridor_wall48"]
+[editable path="walls/walls/corridor_wall49"]
+[editable path="walls/walls/corridor_wall50"]
+[editable path="walls/walls/corridor_wall51"]
+[editable path="walls/walls/corridor_wall52"]
+[editable path="walls/walls/corridor_wall53"]
+[editable path="walls/walls/corridor_wall54"]
+[editable path="walls/walls/corridor_wall33"]
+[editable path="walls/walls/corridor_wall34"]
+[editable path="walls/walls/corridor_wall11"]
+[editable path="walls/walls/corridor_wall12"]
+[editable path="walls/walls/corridor_wall55"]
+[editable path="walls/walls/corridor_wall13"]
+[editable path="walls/walls/corridor_wall14"]
+[editable path="walls/walls/corridor_wall61"]
+[editable path="walls/walls/corridor_wall62"]
+[editable path="walls/walls/corridor_wall63"]
+[editable path="walls/walls/corridor_wall64"]
+[editable path="walls/walls/corridor_wall65"]
+[editable path="walls/walls/corridor_wall66"]
+[editable path="walls/walls/corridor_wall75"]
+[editable path="walls/walls/corridor_wall76"]
+[editable path="walls/walls/corridor_wall82"]
+[editable path="walls/walls/corridor_wall83"]
+[editable path="walls/walls/corridor_wall77"]
+[editable path="walls/walls/corridor_wall67"]
+[editable path="walls/walls/corridor_wall68"]
+[editable path="walls/walls/corridor_wall69"]
+[editable path="walls/walls/corridor_wall70"]
+[editable path="walls/walls/corridor_wall71"]
+[editable path="walls/walls/corridor_wall72"]
+[editable path="walls/walls/corridor_wall73"]
+[editable path="walls/walls/corridor_wall78"]
+[editable path="walls/walls/corridor_wall80"]
+[editable path="walls/walls/corridor_wall81"]
+[editable path="walls/walls/corridor_wall79"]
+[editable path="walls/walls/corridor_wall74"]
+[editable path="Scenery/barrel"]
+[editable path="Scenery/barrel2"]
+[editable path="Scenery/barrel3"]
+[editable path="Scenery/barrel5"]
+[editable path="Scenery/barrel6"]
+[editable path="Scenery/barrel11"]
+[editable path="Scenery/barrel12"]
+[editable path="Scenery/barrel7"]
+[editable path="Scenery/barrel8"]
+[editable path="Scenery/barrel9"]
+[editable path="Scenery/barrel10"]
+[editable path="Scenery/barrel4"]
